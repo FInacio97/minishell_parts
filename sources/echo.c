@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 18:08:06 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/12/09 22:31:08 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/12/15 20:49:10 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #include <stdlib.h>
 #include <readline/readline.h>
 #include <readline/history.h>
+#include "minishell.h"
+
 
 int	is_flag(char *s)
 {
@@ -50,14 +52,22 @@ void	echo(char **prompt)
 
 int	main()
 {
-	char *s;
-	int	i = -1;
-	char c;
-	
-	s = readline(":---");
-	tokenizer(s);
-	
-	free (s);
+	char	*s;
+	char	**mtx;
+
+	while (1)
+	{
+		s = readline(":---");
+		if (ft_strncmp(s, "end", 5) == 0)
+		{
+			free (s);
+			break ;
+		}
+		mtx = tokenizer(s);
+		free (s);
+		echo(mtx);
+		matrix_deleter(mtx);
+	}
 }
 
 
