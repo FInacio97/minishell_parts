@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 18:08:06 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/12/15 20:49:10 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/12/16 19:02:05 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int	is_flag(char *s)
 	int	i;
 
 	i = 0;
+	if (ft_strlen(s) < 2)
+		return (1);
 	if (s[i] == '-' && s[i + 1] == 'n')
 		i+= 2;
 	else
@@ -37,17 +39,26 @@ void	echo(char **prompt)
 {
 	int	nl;
 	int	i;
+	int	tolk_nbr;
 
 	nl = 0;
 	i = -1;
-	while (is_flag(prompt[++i]) == 0)
+	tolk_nbr = 0;
+	while (prompt[tolk_nbr])
+		tolk_nbr++;
+	while (prompt[++i] && is_flag(prompt[i]) == 0)
 		nl = 1;
-	i--;
-	while(prompt[++i + 1])
-		printf("%s ", prompt[i]);///////////////////////////////////
-	printf("%s", prompt[i]);////////////////////////////////////////
-	if (nl == 1)
-		printf("\n");///////////////////////////////////////////////
+	if (is_flag(prompt[i]) == 0)
+		return ;
+	while(i < tolk_nbr - 1)
+	{
+		ft_printf("%s ", prompt[i]);
+		i++;
+	}
+	if (i == tolk_nbr - 1)
+		ft_printf("%s", prompt[i]);
+	if (nl == 0)
+		printf("\n");
 }
 
 int	main()

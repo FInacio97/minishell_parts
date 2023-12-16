@@ -5,7 +5,7 @@ LIBFT = $(LIBFT_PATH)libft.a
 
 INCLUDES = -I ./includes/
 
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g
 OTHER_FLAGS = -L$(LIBFT_PATH) -lft
 
 SRCS = ./sources/echo.c ./sources/tokenizer.c\
@@ -31,3 +31,5 @@ clean:
 
 fclean: clean
 		@rm $(NAME)
+
+re: fclean all
