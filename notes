@@ -1,0 +1,8 @@
+=============================================================
+==================|| N O T E S ||============================
+=============================================================
+
+=>	The space_function should also substitute tabs by spaces
+	when not inside quotes.
+
+=>	What should be used on here_doc: gnl or readline?

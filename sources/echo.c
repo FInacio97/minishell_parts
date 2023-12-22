@@ -6,16 +6,11 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 18:08:06 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/12/16 19:02:05 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/12/21 13:00:12 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <readline/readline.h>
-#include <readline/history.h>
 #include "minishell.h"
-
 
 int	is_flag(char *s)
 {
@@ -64,7 +59,8 @@ void	echo(char **prompt)
 int	main()
 {
 	char	*s;
-	char	**mtx;
+	// char	**mtx;
+	char	*limiter;
 
 	while (1)
 	{
@@ -74,10 +70,16 @@ int	main()
 			free (s);
 			break ;
 		}
-		mtx = tokenizer(s);
+		// mtx = tokenizer(s);
+		// ft_printf("====|| TOKENS ||====\n");
+		// matrix_printer(mtx);
+		// ft_printf("====================\n");
+		// echo(mtx);
+		limiter = get_limiter(s);
+		ft_printf("limiter: %s\n", limiter);
 		free (s);
-		echo(mtx);
-		matrix_deleter(mtx);
+		free (limiter);
+		// matrix_deleter(mtx);
 	}
 }
 

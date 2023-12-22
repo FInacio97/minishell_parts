@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 22:30:35 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/12/16 19:02:26 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/12/18 21:13:17 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ int	quotes_neutralizer(char *tolk, char quote)
 	tolk[++i] = -1;
 	while (tolk[++i])
 	{
+		if (quote == '\'' && tolk[i] == '$')
+			tolk[i] = -2;
 		if (tolk[i] == quote)
 		{
 			tolk[i] = -1;
