@@ -6,12 +6,17 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 18:08:06 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/12/21 13:00:12 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/12/25 19:03:55 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
+/*
+* @brief determines if the string s is a flag (-n)
+* @param s the string
+* @return 0 if its a flag and 1 if its NOT a flag
+*/
 int	is_flag(char *s)
 {
 	int	i;
@@ -30,6 +35,10 @@ int	is_flag(char *s)
 	return (1);
 }
 
+/*
+* @brief display a line of text
+* @param prompt the content to be echoed
+*/
 void	echo(char **prompt)
 {
 	int	nl;
@@ -60,7 +69,7 @@ int	main()
 {
 	char	*s;
 	// char	**mtx;
-	char	*limiter;
+	// char	*limiter;
 
 	while (1)
 	{
@@ -75,26 +84,10 @@ int	main()
 		// matrix_printer(mtx);
 		// ft_printf("====================\n");
 		// echo(mtx);
-		limiter = get_limiter(s);
-		ft_printf("limiter: %s\n", limiter);
+		// limiter = get_limiter(s);
+		// ft_printf("limiter: %s\n", limiter);
 		free (s);
-		free (limiter);
+		// free (limiter);
 		// matrix_deleter(mtx);
 	}
 }
-
-
-
-/*
-	echo       -nnnnnnn   "-n " " -n"      skjdcsnc
- 
- -nnnnnnn   "-n ""' -n'"      skjdcsnc
-
- -nnnnnnn
-
- -n 
-
-' -n'
-
-skjdcsnc
-*/

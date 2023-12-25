@@ -6,13 +6,17 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 22:30:35 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/12/18 21:13:17 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/12/25 18:44:00 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 #include <stdlib.h>
 
+/*
+* @brief Marks all white spaces, so it can be splited
+* @param s a portion of the prompt corresponding to a command
+*/
 void	token_divider(char *s)
 {
 	int		i;
@@ -37,6 +41,12 @@ void	token_divider(char *s)
 	}
 }
 
+/*
+* @brief Marks all outer quotes for further removal
+* @param tolk pointer to the tolken
+* @param the type of quote to be replaced
+* @return the number of caracters inbetween outer quotes
+*/
 int	quotes_neutralizer(char *tolk, char quote)
 {
 	int	i;
@@ -56,6 +66,10 @@ int	quotes_neutralizer(char *tolk, char quote)
 	return (i);
 }
 
+/*
+* @brief Removes all marked quotes
+* @param tolk pointer to the tolken
+*/
 char	*unquoter(char *tolken)
 {
 	int		nbr_quotes;
@@ -92,6 +106,10 @@ char	*unquoter(char *tolken)
 	return (prod);
 }
 
+/*
+* @brief Splits the prompt in tolkens
+* @param the portion of the prompt to be tolkenized
+*/
 char	**tokenizer(char *s)
 {
 	char	**tolkens;
