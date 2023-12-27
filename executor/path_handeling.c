@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 16:45:08 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/12/24 19:17:56 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/12/27 16:48:27 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,17 @@ void	path_finder(t_exec *exec, t_commands *cmd)
 			break ;
 		free (cmd->cmd_path);
 	}
-	if (access(cmd->cmd_path, F_OK) != 0)
+	if (access(cmd->cmd_path, F_OK) == 0)
+		return ;
+	if (access(cmd->cmds[0], F_OK) == 0)
+	{
+		if (access(cmd->cmds[0], X_OK) == 0)
+		{
+			cmd->cmd_path = ft_strdup(cmd->cmds[0]);
+			return ;
+		}
+	}
+	// you have to make it so that it executes a file in the current directory. ex: ./minishell
 		ft_printf("Error\n") ;			// Error handeling
 }
 
