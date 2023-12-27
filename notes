@@ -17,3 +17,19 @@
 	exit status)
 
 =>	Test if the builtins are redirecting properly (ex: pwd > file)
+
+=>	the exit status that is considered is the one from the last
+	command of the pipeline
+
+
+	==================|| T O   D O ||==================
+=>	expansao
+=>	exit status
+=>	error handling
+
+=>	redirection (access)
+	if the "file name" is a directory or a already created file
+	
+=>	exit status
+	se não hover argumentos suficientes nas redireções ou pipes exit status é 2 
+	se for uma pasta ou não houver permissão é 1

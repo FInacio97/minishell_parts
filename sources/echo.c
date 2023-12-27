@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 18:08:06 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/12/25 19:03:55 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/12/26 17:09:05 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	echo(char **prompt)
 int	main()
 {
 	char	*s;
-	// char	**mtx;
+	char	**mtx;
 	// char	*limiter;
 
 	while (1)
@@ -79,15 +79,15 @@ int	main()
 			free (s);
 			break ;
 		}
-		// mtx = tokenizer(s);
-		// ft_printf("====|| TOKENS ||====\n");
-		// matrix_printer(mtx);
-		// ft_printf("====================\n");
-		// echo(mtx);
+		mtx = tokenizer(s);
+		ft_printf("====|| TOKENS ||====\n");
+		matrix_printer(mtx);
+		ft_printf("====================\n");
+		echo(mtx);
 		// limiter = get_limiter(s);
 		// ft_printf("limiter: %s\n", limiter);
 		free (s);
 		// free (limiter);
-		// matrix_deleter(mtx);
+		matrix_deleter(mtx);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 12:34:32 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/12/25 19:06:16 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/12/26 16:47:11 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,22 +33,22 @@ typedef enum
 
 typedef struct s_redirection
 {
-	char					*key_wrd;			//	The key word after the operand: limiter or file name
-	int						type;				//	Redirection type (t_redir_type)
-	struct s_redirection	*next;				//	Pointer to the next redirection struct
+	char					*key_wrd;			//	[X]	The key word after the operand: limiter or file name
+	int						type;				//	[X]	Redirection type (t_redir_type)
+	struct s_redirection	*next;	 			//	[X]	Pointer to the next redirection struct
 	
 }				t_redirection;
 
 
 typedef struct s_commands
 {
-	char				**cmds;					//	The command and it respective arguments
-	char				*cmd_path;				//	The path to the command's binary
-	t_redirection		*redirect;				//	All redirections
-	int					hd_fd;					//	The fd corresponding to the here_doc
-	int					read_fd;				//	The fd corresponding to the here_doc
-	int					write_fd;				//	The fd corresponding to the here_doc
-	struct s_commands	*next;					//	Next command in the pipeline
+	char				**cmds;					//	[X] The command and it respective arguments
+	char				*cmd_path;				//	[ ] The path to the command's binary
+	t_redirection		*redirect;				//	[X] All redirections
+	int					hd_fd;					//	[ ] The fd corresponding to the here_doc
+	int					read_fd;				//	[ ] The fd corresponding to the here_doc
+	int					write_fd;				//	[ ] The fd corresponding to the here_doc
+	struct s_commands	*next;					//	[X] Next command in the pipeline
 	
 }				t_commands;
 
@@ -64,10 +64,10 @@ typedef struct s_exec
 
 typedef struct s_data
 {
-	t_commands	*first_cmd;						//	Pointer to the struct of fist command in the pipeline
-	char		**env;							//	Environment variables
-	int			nbr_cmds;						//	Number of commands
-	int			exit_status;					//	Exit status of the last child process
+	t_commands	*first_cmd;						//	[X] Pointer to the struct of fist command in the pipeline
+	char		**env;							//	[X] Environment variables
+	int			nbr_cmds;						//	[X] Number of commands
+	int			exit_status;					//	[ ] Exit status of the last child process
 }				t_data;
 
 
