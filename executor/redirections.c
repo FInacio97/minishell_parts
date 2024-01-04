@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 16:44:42 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/12/25 14:55:36 by fda-estr         ###   ########.fr       */
+/*   Updated: 2024/01/04 12:48:08 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,13 +81,13 @@ void	redirect(t_exec *exec, t_commands *cmd)
 	current = cmd->redirect;
 	while (current)
 	{
-		if (current->type == IN)
+		if (current->type == RDIR_IN)
 			redir_in(exec, cmd, current);
-		else if (current->type == HD && !current->next)
+		else if (current->type == RDIR_HDOC && !current->next)
 			cmd->hd_fd = cmd->hd_fd;
-		else if (current->type == OUT)
+		else if (current->type == RDIR_OUT)
 			redir_out_trunc(exec, cmd, current);
-		else if (current->type == APP)
+		else if (current->type == RDIR_APP)
 			redir_out_append(exec, cmd, current);
 		current = current->next;
 	}

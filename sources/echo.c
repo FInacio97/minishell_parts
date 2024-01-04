@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 18:08:06 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/12/26 17:09:05 by fda-estr         ###   ########.fr       */
+/*   Updated: 2024/01/04 12:10:49 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,11 +83,11 @@ int	main()
 		ft_printf("====|| TOKENS ||====\n");
 		matrix_printer(mtx);
 		ft_printf("====================\n");
-		echo(mtx);
-		// limiter = get_limiter(s);
-		// ft_printf("limiter: %s\n", limiter);
-		free (s);
-		// free (limiter);
-		matrix_deleter(mtx);
+		// echo(mtx);
+		// // limiter = get_limiter(s);
+		// // ft_printf("limiter: %s\n", limiter);
+		// free (s);
+		// // free (limiter);
+		// matrix_deleter(mtx);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 20:27:31 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/12/26 17:08:19 by fda-estr         ###   ########.fr       */
+/*   Updated: 2024/01/04 12:46:49 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	here_doc_check(t_commands *cmd)
 	redir = cmd->redirect;
 	while (redir)
 	{
-		if (redir->type != HD)
+		if (redir->type != RDIR_HDOC)
 			continue ;
 		to_close(cmd->hd_fd);
 		if (pipe(fd) == 1)

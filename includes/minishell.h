@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 12:34:32 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/12/26 16:47:11 by fda-estr         ###   ########.fr       */
+/*   Updated: 2024/01/04 12:52:10 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,23 @@
 
 typedef enum
 {
-	IN,											//	input file (<)
-	HD,											//	here document (<<)
-	OUT,										//	truncate output file (>)
-	APP,										//	append output file (>>)
+	RDIR_IN = -1,											//	input file (<)
+	RDIR_HDOC = -2,											//	here document (<<)
+	RDIR_OUT = -3,										//	truncate output file (>)
+	RDIR_APP = -4,										//	append output file (>>)
+	RDIR_PIPE = -5,
+	RDIR_DPIPE = -6,
 }			t_redir_type;
+
+typedef enum
+{
+	GREAT = -62,
+	MINOR = -60,
+	PIPE = -124,
+	SPC = -32,
+	SINGQ = -39,
+	DOUBQ = -34,
+}				t_negative_prompt;
 
 typedef struct s_redirection
 {
@@ -81,6 +93,7 @@ void	here_doc_manager(t_data *data);
 
 /* TOKENIZER */
 
+void	prompt_neutralizer(char *s);
 void	token_divider(char *s);
 int		quotes_neutralizer(char *tolk, char quote);
 char	*unquoter(char *tolken);
@@ -96,6 +109,8 @@ void	echo(char **prompt);
 /* UTILS */
 
 int		to_close(int fd);
+int		is_redir_token(char c);
+int		what_redir_token(char *str);
 
 /* *************************************************** */
 /* EXECUTOR */
